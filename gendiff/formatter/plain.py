@@ -5,6 +5,8 @@ def get_formatted_value(value):
         return 'true' if value else 'false'
     if value is None:
         return 'null'
+    if isinstance(value, int):
+        return value
     return f"'{value}'"
 
 
