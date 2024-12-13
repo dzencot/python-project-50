@@ -1,2 +1,2 @@
 def gendiff():
-    
+    return True
