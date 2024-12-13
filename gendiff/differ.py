@@ -1,7 +1,7 @@
 
 
 def get_diff(first_data, second_data):
-    union_keys = first_data.keys() | second_data.keys()
+    union_keys = sorted(first_data.keys() | second_data.keys())
 
     def comparator(key):
         first_value = first_data.get(key)

@@ -13,6 +13,8 @@ def get_fixture(name):
     return data
 
 def test_json():
-    expected = get_fixture('stylish_output')
+    expected = get_fixture('stylish_output').strip()
+    first_file_path = get_fixture_path('file1.json')
+    second_file_path = get_fixture_path('file2.json')
 
-    assert gendiff() == expected
+    assert gendiff(first_file_path, second_file_path, 'stylish') == expected

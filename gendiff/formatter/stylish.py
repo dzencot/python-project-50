@@ -1,19 +1,21 @@
-def get_indent(depth, size=2, space=' '):
-    return space * (depth * size)
+def get_indent(depth, size=4, space=' '):
+    return space * ((depth * size) - 2)
 
 def get_stylish_value(value, depth):
-
-    return f'{value}'
+    formatted = '\n'.join(list(map(lambda key: f'{get_indent(depth)}  {key}: {get_formatted_value(value.get(key), depth)}', value)))
+    return f'{{\n{formatted}\n  {get_indent(depth - 1)}}}'
 
 def get_formatted_value(value, depth):
     if isinstance(value, dict):
-        return get_stylish_value(value, depth)
+        return get_stylish_value(value, depth + 1)
     if isinstance(value, bool):
         return 'true' if value else 'false'
+    if value == None:
+        return 'null'
     return value
 
 def stylish(diff):
-    def inner(node, depth=0):
+    def inner(node, depth=1):
         node_type = node.get('type')
         key = node.get('key')
 
@@ -36,7 +38,7 @@ def stylish(diff):
             case 'nested':
                 children = node.get('children')
                 formatted_children = '\n'.join(list(map(lambda child: inner(child, depth + 1), children)))
-                result = f'{get_indent(depth)}  {key}: {{{formatted_children}\n{get_indent(depth)}}}'
+                result = f'{get_indent(depth)}  {key}: {{\n{formatted_children}\n  {get_indent(depth)}}}'
                 return result
             case 'changed':
                 old_value = node.get('old_value')
@@ -46,7 +48,7 @@ def stylish(diff):
                 formatted_new_value = get_formatted_value(new_value, depth)
 
                 result_before = f'{get_indent(depth)}- {key}: {formatted_old_value}'
-                result_after = f'{get_indent(depth)}- {key}: {formatted_new_value}'
+                result_after = f'{get_indent(depth)}+ {key}: {formatted_new_value}'
                 return '\n'.join([result_before, result_after])
         raise ValueError(f'Unknown type: {node_type}')
 
