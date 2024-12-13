@@ -12,4 +12,4 @@ def format(tree, format_name):
             return plain(tree)
         case 'json':
             return json.dumps(tree)
-    raise ValueError(f'Unknown format name: #{format_name}')
+    raise ValueError(f'Unknown format name: {format_name}')

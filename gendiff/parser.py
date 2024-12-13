@@ -7,4 +7,4 @@ def parser(content, format):
             return json.loads(content)# json
         case 'yaml' | 'yml':
             return # yml
-    raise ValueError(f'Unknown format: #{format}')
+    raise ValueError(f'Unknown format: {format}')

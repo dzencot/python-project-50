@@ -33,8 +33,8 @@ def get_diff(first_data, second_data):
         return {
             'key': key,
             'type': 'changed',
-            'before_value': first_value,
-            'after_value': second_value
+            'old_value': first_value,
+            'new_value': second_value
         }
     
     result = list(map(comparator, union_keys))
