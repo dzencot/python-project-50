@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from gendiff.differ import get_diff
-from gendiff.formatter.main import format
+from gendiff.formatter import format
 from gendiff.parser import parser
 
 
