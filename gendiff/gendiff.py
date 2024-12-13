@@ -18,7 +18,7 @@ def get_data_format(path):
     return file_extension[1:]
 
 
-def gendiff(first_file_path, second_file_path, format_name='stylish'):
+def generate_diff(first_file_path, second_file_path, format_name='stylish'):
     first_content = get_content(first_file_path)
     first_content_format = get_data_format(first_file_path)
 

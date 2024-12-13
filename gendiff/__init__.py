@@ -1,3 +1,3 @@
-from gendiff.gendiff import gendiff
+from gendiff.gendiff import generate_diff
 
-__all__ = ('gendiff')
+__all__ = ('generate_diff')

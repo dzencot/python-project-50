@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from gendiff.gendiff import gendiff
+from gendiff.gendiff import generate_diff
 
 
 def get_test_data_path(filename):
@@ -26,6 +26,6 @@ def test_gendiff(file_format):
     first_file_path = get_test_data_path(f'file1.{file_format}')
     second_file_path = get_test_data_path(f'file2.{file_format}')
 
-    assert gendiff(first_file_path, second_file_path, 'stylish') == stylish_expected  # noqa: E501
-    assert gendiff(first_file_path, second_file_path, 'plain') == plain_expected
-    assert gendiff(first_file_path, second_file_path, 'json') == json_expected
+    assert generate_diff(first_file_path, second_file_path, 'stylish') == stylish_expected  # noqa: E501
+    assert generate_diff(first_file_path, second_file_path, 'plain') == plain_expected  # noqa: E501
+    assert generate_diff(first_file_path, second_file_path, 'json') == json_expected  # noqa: E501
