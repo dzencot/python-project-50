@@ -5,6 +5,7 @@ description = "Diff generator"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pathlib>=1.0.1",
     "pyyaml>=6.0.2",
 ]
 

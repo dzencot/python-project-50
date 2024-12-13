@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 from gendiff.differ import get_diff
 from gendiff.formatter.main import format
@@ -6,19 +6,15 @@ from gendiff.parser import parser
 
 
 def get_absolute_path(path):
-    return os.path.join(os.getcwd(), path)
+    return Path.joinpath(Path.cwd(), path)
 
 
-def get_content(path):
-    absolute_path = get_absolute_path(path)
-    fd = open(absolute_path) 
-    data = fd.read()
-    fd.close()
-    return data
+def get_content(filename):
+    return get_absolute_path(filename).read_text()
 
 
 def get_data_format(path):
-    _, file_extension = os.path.splitext(path)
+    file_extension = Path(path).suffix
     return file_extension[1:]
 
 
