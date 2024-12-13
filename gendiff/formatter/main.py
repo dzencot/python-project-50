@@ -1,7 +1,7 @@
 import json
+
 from gendiff.formatter.plain import plain
 from gendiff.formatter.stylish import stylish
-
 
 
 def format(tree, format_name):

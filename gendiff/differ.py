@@ -6,13 +6,13 @@ def get_diff(first_data, second_data):
     def comparator(key):
         first_value = first_data.get(key)
         second_value = second_data.get(key)
-        if not (key in first_data):
+        if key not in first_data:
             return {
                 'key': key,
                 'type': 'added',
                 'value': second_value
             }
-        if not (key in second_data):
+        if key not in second_data:
             return {
                 'key': key,
                 'type': 'removed',

@@ -1,22 +1,26 @@
 import os
-from gendiff.parser import parser
+
 from gendiff.differ import get_diff
 from gendiff.formatter.main import format
+from gendiff.parser import parser
 
 
 def get_absolute_path(path):
     return os.path.join(os.getcwd(), path)
 
+
 def get_content(path):
     absolute_path = get_absolute_path(path)
-    fd = open(path) 
+    fd = open(absolute_path) 
     data = fd.read()
     fd.close()
     return data
 
+
 def get_data_format(path):
     _, file_extension = os.path.splitext(path)
     return file_extension[1:]
+
 
 def gendiff(first_file_path, second_file_path, format_name='stylish'):
     first_content = get_content(first_file_path)

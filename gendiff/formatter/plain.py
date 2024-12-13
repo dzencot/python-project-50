@@ -3,9 +3,10 @@ def get_formatted_value(value):
         return '[complex value]'
     if isinstance(value, bool):
         return 'true' if value else 'false'
-    if value == None:
+    if value is None:
         return 'null'
     return f"'{value}'"
+
 
 def plain(diff):
     def inner(node, paths=[]):
@@ -19,7 +20,7 @@ def plain(diff):
                 property_name = '.'.join(new_paths)
                 formatted_value = get_formatted_value(value)
 
-                result = f"Property '{property_name}' was added with value: {formatted_value}"
+                result = f"Property '{property_name}' was added with value: {formatted_value}"  # noqa: E501
                 return result
             case 'removed':
                 value = node.get('value')
@@ -32,7 +33,7 @@ def plain(diff):
             case 'nested':
                 children = node.get('children')
                 prepared = map(lambda child: inner(child, new_paths), children)
-                filtered = filter(lambda item: item != None, prepared)
+                filtered = filter(lambda item: item is not None, prepared)
                 return '\n'.join(list(filtered))
             case 'changed':
                 property_name = '.'.join(new_paths)
@@ -43,10 +44,10 @@ def plain(diff):
                 new_value = node.get('new_value')
                 formatted_new_value = get_formatted_value(new_value)
 
-                return f"Property '{property_name}' was updated. From {formatted_old_value} to {formatted_new_value}"
+                return f"Property '{property_name}' was updated. From {formatted_old_value} to {formatted_new_value}"  # noqa: E501
         raise ValueError(f'Unknown type: {node_type}')
 
     prepared = map(inner, diff)
-    filtered = filter(lambda item: item != None, prepared)
+    filtered = filter(lambda item: item is not None, prepared)
     return '\n'.join(list(filtered))
 
