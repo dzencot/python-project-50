@@ -1,10 +1,6 @@
 # Difference calculator
 
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/dzencot/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dzencot/python-project-50/actions)
-[![Python CI](https://github.com/dzencot/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/dzencot/python-project-50/actions/workflows/pyci.yml
-[![Maintainability](https://api.codeclimate.com/v1/badges/ecdc4410853420af5ae0/maintainability)](https://codeclimate.com/github/dzencot/python-project-50/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ecdc4410853420af5ae0/test_coverage)](https://codeclimate.com/github/dzencot/python-project-50/test_coverage)
+[![Actions Status](https://github.com/dzencot/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dzencot/python-project-50/actions) [![Python CI](https://github.com/dzencot/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/dzencot/python-project-50/actions/workflows/pyci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/ecdc4410853420af5ae0/maintainability)](https://codeclimate.com/github/dzencot/python-project-50/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ecdc4410853420af5ae0/test_coverage)](https://codeclimate.com/github/dzencot/python-project-50/test_coverage)
 
 ### Links
 
